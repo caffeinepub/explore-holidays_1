@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.625rem;
+    /* Dark premium theme — always dark */
+    --background: 0.09 0.005 260;
+    --foreground: 1 0 0;
+    --card: 0.12 0.007 260;
+    --card-foreground: 1 0 0;
+    --popover: 0.14 0.009 260;
+    --popover-foreground: 1 0 0;
+    --primary: 0.53 0.22 27;
+    --primary-foreground: 1 0 0;
+    --secondary: 0.14 0.009 260;
+    --secondary-foreground: 1 0 0;
+    --muted: 0.16 0.007 260;
+    --muted-foreground: 0.73 0.01 260;
+    --accent: 0.53 0.22 27;
+    --accent-foreground: 1 0 0;
+    --destructive: 0.53 0.22 27;
+    --destructive-foreground: 1 0 0;
+    --border: 0.25 0.008 260;
+    --input: 0.25 0.008 260;
+    --ring: 0.53 0.22 27;
+    --chart-1: 0.53 0.22 27;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+    --sidebar: 0.12 0.007 260;
+    --sidebar-foreground: 1 0 0;
+    --sidebar-primary: 0.53 0.22 27;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent: 0.16 0.007 260;
+    --sidebar-accent-foreground: 1 0 0;
+    --sidebar-border: 0.25 0.008 260;
+    --sidebar-ring: 0.53 0.22 27;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Montserrat", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .text-red-brand {
+    color: oklch(0.53 0.22 27);
+  }
+  .bg-red-brand {
+    background-color: oklch(0.53 0.22 27);
+  }
+  .bg-red-brand-dark {
+    background-color: oklch(0.43 0.19 25);
+  }
+  .border-red-brand {
+    border-color: oklch(0.53 0.22 27);
+  }
+  .bg-panel {
+    background-color: oklch(0.13 0.007 260);
+  }
+  .bg-panel-light {
+    background-color: oklch(0.16 0.009 260);
+  }
+  .text-muted-brand {
+    color: oklch(0.73 0.01 260);
+  }
+  .border-neutral-brand {
+    border-color: oklch(0.38 0.008 260);
+  }
+}
