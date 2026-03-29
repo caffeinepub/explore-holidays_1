@@ -4,16 +4,17 @@ import { motion } from "motion/react";
 export function HeroSection() {
   return (
     <section
-      className="relative flex min-h-[92vh] items-center overflow-hidden"
+      className="relative flex min-h-fit items-center overflow-hidden"
       id="hero"
     >
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&h=1080&fit=crop')",
-        }}
+      {/* Background Video - Beach */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 h-full w-full object-cover"
+        src="https://videos.pexels.com/video-files/1093662/1093662-uhd_2560_1440_24fps.mp4"
       />
       {/* Dark overlay left-to-right */}
       <div
@@ -25,7 +26,7 @@ export function HeroSection() {
       />
       {/* Bottom fade */}
       <div
-        className="absolute bottom-0 left-0 right-0 h-32"
+        className="absolute bottom-0 left-0 right-0 h-16"
         style={{
           background:
             "linear-gradient(to top, oklch(0.09 0.005 260), transparent)",
@@ -33,18 +34,71 @@ export function HeroSection() {
       />
 
       {/* Content */}
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 pt-16 pb-6 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
-          {/* Welcome Heading */}
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.05 }}
-            className="mb-2 text-4xl font-black leading-tight text-white sm:text-5xl"
-            style={{ fontWeight: 900 }}
-          >
-            WELCOME TO EXPLORE HOLIDAYS
-          </motion.h1>
+          {/* Welcome Heading with animated icons */}
+          <div className="relative mb-2">
+            {/* Floating animated icons */}
+            {/* Sun - top right of heading */}
+            <motion.span
+              className="pointer-events-none absolute -top-8 right-0 select-none text-3xl opacity-70"
+              animate={{ rotate: 360 }}
+              transition={{
+                repeat: Number.POSITIVE_INFINITY,
+                duration: 8,
+                ease: "linear",
+              }}
+              aria-hidden="true"
+            >
+              ☀️
+            </motion.span>
+
+            {/* Palm tree - left side */}
+            <motion.span
+              className="pointer-events-none absolute -top-6 -left-6 select-none text-3xl opacity-60"
+              animate={{ rotate: [0, 5, 0, -5, 0] }}
+              transition={{ repeat: Number.POSITIVE_INFINITY, duration: 3 }}
+              aria-hidden="true"
+            >
+              🌴
+            </motion.span>
+
+            {/* Wave - bottom left */}
+            <motion.span
+              className="pointer-events-none absolute -bottom-6 left-8 select-none text-2xl opacity-60"
+              animate={{ x: [0, 10, 0] }}
+              transition={{ repeat: Number.POSITIVE_INFINITY, duration: 2 }}
+              aria-hidden="true"
+            >
+              🌊
+            </motion.span>
+
+            {/* Plane - flies across */}
+            <motion.span
+              className="pointer-events-none absolute -top-10 select-none text-2xl opacity-75"
+              initial={{ x: -40 }}
+              animate={{ x: 200 }}
+              transition={{
+                repeat: Number.POSITIVE_INFINITY,
+                duration: 4,
+                ease: "linear",
+                repeatDelay: 1,
+              }}
+              aria-hidden="true"
+            >
+              ✈️
+            </motion.span>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.05 }}
+              className="text-4xl font-black leading-tight text-white sm:text-5xl"
+              style={{ fontWeight: 900 }}
+            >
+              WELCOME TO EXPLORE HOLIDAYS
+            </motion.h1>
+          </div>
 
           {/* Nice Day subtitle */}
           <motion.p
@@ -118,7 +172,7 @@ export function HeroSection() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.6 }}
-        className="absolute bottom-16 right-8 hidden flex-col gap-4 lg:flex"
+        className="absolute bottom-8 right-8 hidden flex-col gap-4 lg:flex"
       >
         {[
           { value: "500+", label: "Destinations" },

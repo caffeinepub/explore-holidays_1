@@ -1,6 +1,7 @@
 import { Toaster } from "@/components/ui/sonner";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AppPromoSection } from "./components/AppPromoSection";
+import { BusCollectionSection } from "./components/BusCollectionSection";
 import { ContactSection } from "./components/ContactSection";
 import { FeaturesSection } from "./components/FeaturesSection";
 import { HeroSection } from "./components/HeroSection";
@@ -25,9 +26,10 @@ export default function App() {
         <main>
           <HeroSection />
           <TripPackagesSection />
+          <BusCollectionSection />
+          <ContactSection />
           <FeaturesSection />
           <AppPromoSection />
-          <ContactSection />
         </main>
         <SiteFooter />
       </div>
